@@ -30,7 +30,7 @@ export default class Todo
 
     deleteItem = (key) => {
         this.setState({
-            //items:this.state.items.filter((item,index) => key!==index)
+            items:this.state.items.filter((item,index) => key!==index)
         });
     }
 
