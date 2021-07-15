@@ -38,6 +38,7 @@ input::placeholder{
     background-color: #f1da71;
     outline: none;
     color: #dba100  ;
+    font-size: 16px;
 }
 
 ul{
@@ -46,7 +47,7 @@ ul{
 }
 
 ul li{
-    display: flex; 
+    /* display: flex; */
     list-style: none;
     background-color: #f1da71;
     border-radius: 5px;
@@ -57,7 +58,21 @@ ul li{
 }
 
 ul li i{
-    text-align: right;
-    flex: 1;
+    /* text-align: right;
+    flex: 1; */
+    position: absolute;
+    right: 10px;
     cursor: pointer;
+}
+
+ul li input{
+    border: none;
+    background-color: #f1da71;
+    color: #dba100;
+    font-size: 16px;
+    width: 80%;
+}
+
+ul li input:focus{
+    outline: none;
 }

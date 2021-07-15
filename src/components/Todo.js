@@ -34,6 +34,16 @@ export default class Todo
         });
     }
 
+    editItem = (index,event) => {
+        //console.log(event.target.value);
+        const newItems = this.state.items;
+        newItems.splice(index,1,event.target.value);
+
+        this.setState({
+            items: newItems
+        });
+    }
+
     render() {
         const {input,items} = this.state;
         return (
@@ -46,7 +56,7 @@ export default class Todo
                     {
                         items.map((item,index) => (
                             <li key={index}>
-                                {item}
+                                <input value={item} onChange={(event)=>this.editItem(index,event)} />
                                 <i onClick={() => this.deleteItem(index)} className="fas fa-trash-alt"></i>
                             </li>
                         ))
