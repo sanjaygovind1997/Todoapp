@@ -35,7 +35,6 @@ export default class Todo
     }
 
     editItem = (index,event) => {
-        //console.log(event.target.value);
         const newItems = this.state.items;
         newItems.splice(index,1,event.target.value);
 

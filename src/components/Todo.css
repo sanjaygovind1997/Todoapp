@@ -3,7 +3,6 @@ body{
     background-color: #dba100;
     font-family: sans-serif;
 }
-/*#dba100,#f2d44b*/
 
 .todo-container{
     width: 350px;
@@ -47,7 +46,6 @@ ul{
 }
 
 ul li{
-    /* display: flex; */
     list-style: none;
     background-color: #f1da71;
     border-radius: 5px;
@@ -58,8 +56,6 @@ ul li{
 }
 
 ul li i{
-    /* text-align: right;
-    flex: 1; */
     position: absolute;
     right: 10px;
     cursor: pointer;
