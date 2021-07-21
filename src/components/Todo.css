@@ -39,36 +39,3 @@ input::placeholder{
     color: #dba100  ;
     font-size: 16px;
 }
-
-ul{
-    text-align: left;
-    padding: 0 ;
-}
-
-ul li{
-    list-style: none;
-    background-color: #f1da71;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    color: #dba100;
-    box-shadow: 0 3px 6px #000000a1;
-}
-
-ul li i{
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
-}
-
-ul li input{
-    border: none;
-    background-color: #f1da71;
-    color: #dba100;
-    font-size: 16px;
-    width: 80%;
-}
-
-ul li input:focus{
-    outline: none;
-}
