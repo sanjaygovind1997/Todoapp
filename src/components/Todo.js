@@ -1,62 +1,58 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import './Todo.css';
 
-export default class Todo
- extends Component {
+export default function Todo(){
 
-    constructor(props){
-        super(props);
-        this.state={
-            input:'',
-            items:[]
-        };
-    } 
+    const [state,setState] = useState({input:'',items: []});
     
-    handleChange = event =>{
-        this.setState({
-            input:event.target.value
+    const handleChange = event =>{
+        const {items} = state;
+        setState({
+            input:event.target.value,
+            items:items
         });
     }
 
-    addItem = (event) => {
+    const addItem = event => {
         event.preventDefault();
-        const {input} = this.state;
+        const {input} = state;
 
-        this.setState({
-            items:[...this.state.items,input],
+        setState({
+            items:[...state.items,input],
             input:''
         });
     }
 
-    deleteItem = (key) => {
-        this.setState({
-            items:this.state.items.filter((item,index) => key!==index)
+    const deleteItem = key => {
+        const {input} = state;
+        setState({
+            items:state.items.filter((item,index) => key!==index),
+            input:input
         });
     }
 
-    editItem = (index,event) => {
-        const newItems = this.state.items;
-        newItems.splice(index,1,event.target.value);
+    const editItem = (index,event) => {
+        const {input,items} = state;
+        items.splice(index,1,event.target.value);
 
-        this.setState({
-            items: newItems
+        setState({
+            items: items,
+            input:input
         });
     }
-
-    render() {
-        const {input,items} = this.state;
+        const {input,items} = state;
         return (
             <div className="todo-container">
-                <form onSubmit={this.addItem} className="input-section">
+                <form onSubmit={addItem} className="input-section">
                     <h1>Todo App</h1>
-                    <input value={input} onChange={this.handleChange} type="text" placeholder="Enter Todo..." />
+                    <input value={input} onChange={handleChange} type="text" placeholder="Enter Todo..." />
                 </form>
                 <ul>
                     {
                         items.map((item,index) => (
                             <li key={index}>
-                                <input value={item} onChange={(event)=>this.editItem(index,event)} />
-                                <i onClick={() => this.deleteItem(index)} className="fas fa-trash-alt"></i>
+                                <input value={item} onChange={(event)=>editItem(index,event)} />
+                                <i onClick={() => deleteItem(index)} className="fas fa-trash-alt"></i>
                             </li>
                         ))
                     }
@@ -64,4 +60,3 @@ export default class Todo
             </div>
         )
     }
-}
